@@ -35,7 +35,41 @@
         </div>
 
         <div class="container-right">
-            right
+            <p>Add your own book!</p>
+
+            <form action="">
+                <div class="form-first-part">
+                    <div>
+                        <label for="title">Title:</label>
+                        <br>
+                        <input type="text" id="title">
+                    </div>
+                    <div>
+                        <label for="author">Author:</label>
+                        <br>
+                        <input type="text" id="author">
+                    </div>
+                    <div>
+                        <label for="pages">Number of pages:</label>
+                        <br>
+                        <input type="number" id="pages">
+                    </div>
+                </div>
+
+                <div class="form-second-part">
+                    <p>Did you read the book already?</p>
+                    <div>
+                        <input type="radio" id="read" name="is-read" value="true">
+                        <label for="read">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="not-read" name="is-read" value="false">
+                        <label for="read">No</label>
+                    </div>
+                </div>
+
+                <button type="submit">Add the book</button>
+            </form>
         </div>
     </div>
 </body>

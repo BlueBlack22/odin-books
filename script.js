@@ -1,5 +1,3 @@
-const tableBody = document.querySelector('tbody');
-
 const myLibrary = [
     {
         title: 'The Silence of the Lambs',
@@ -21,13 +19,4 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary() {
     
-}
-
-function displayBooks {
-    for (const books in myLibrary) {
-        const newRow = document.createElement('tr');
-        newRow.createElement('td').textContent(this.title).appendCH;
-
-        
-    }
 }

@@ -66,4 +66,38 @@ thead {
 
 .container-right {
     background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-right>p {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+form {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.form-first-part {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+form button {
+    width: 7vw;
+    height: 4vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    align-self: center;
 }
