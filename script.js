@@ -28,6 +28,11 @@ function updateButtons() {
     removeButtons.forEach(function(currentBtn) {
         currentBtn.addEventListener('click', (e) => removeBookFromLibrary(currentBtn.value));
     });
+
+    const isReadButtons = document.querySelectorAll('.is-read-btn');
+    isReadButtons.forEach(function(currentBtn) {
+        currentBtn.addEventListener('click', (e) => changeStatus(currentBtn.value))
+    });
 }
 
 function displayBooks() {
@@ -48,13 +53,19 @@ function displayBooks() {
         newPages.textContent = myLibrary[i].pages;
         newRow.appendChild(newPages);
 
-        const newRead = document.createElement('td');
+        const readCell = document.createElement('td');
+        const readBtn = document.createElement('button');
         if (myLibrary[i].read == true) {
-            newRead.textContent = 'Read';
+            readBtn.textContent = 'Read';
+            readBtn.classList.add('btn-read');
         } else {
-            newRead.textContent = 'Not Read';
+            readBtn.textContent = 'Not Read';
+            readBtn.classList.add('btn-not-read');
         }
-        newRow.appendChild(newRead);
+        readBtn.setAttribute('value', i);
+        readBtn.classList.add('is-read-btn');
+        readCell.appendChild(readBtn);
+        newRow.appendChild(readCell);
 
         const removeCell = document.createElement('td');
         const removeBtn = document.createElement('button');
@@ -77,6 +88,12 @@ function addBookToLibrary(title, author, pages, read) {
 
 function removeBookFromLibrary(index) {
     myLibrary.splice(index, 1);
+    displayBooks();
+}
+
+function changeStatus(index) {
+    const currentStatus = myLibrary[index].read;
+    currentStatus ? myLibrary[index].read = false : myLibrary[index].read = true;
     displayBooks();
 }
 

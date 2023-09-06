@@ -64,6 +64,19 @@ thead {
     font-weight: 600;
 }
 
+.btn-read,
+.btn-not-read {
+    border: 1px solid black;
+}
+
+.btn-read {
+    background-color: green;
+}
+
+.btn-not-read {
+    background-color: red;
+}
+
 .container-right {
     background-color: aquamarine;
     display: flex;
