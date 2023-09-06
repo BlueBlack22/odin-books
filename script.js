@@ -28,8 +28,6 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
-
-
 function displayBooks() {
     tableBody.textContent = '';
 
@@ -59,7 +57,6 @@ function displayBooks() {
         tableBody.appendChild(newRow);
     }
 }
-
 
 form.addEventListener('submit', (e) => {
     addBookToLibrary(title.value, author.value, pages.value, document.querySelector('input[name="is-read"]:checked').value);
