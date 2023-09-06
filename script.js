@@ -81,7 +81,13 @@ function displayBooks() {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-    const newBook = new Book(title, author, pages, read);
+    if (read == 'true') {
+        readBoolean = true;
+    } else {
+        readBoolean = false;
+    }
+    
+    const newBook = new Book(title, author, pages, readBoolean);
     myLibrary.push(newBook);
     displayBooks();
 }
