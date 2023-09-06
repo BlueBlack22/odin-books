@@ -1,7 +1,7 @@
 const form = document.querySelector('#book-form');
 const tableBody = document.getElementById('table-body')
 
-const myLibrary = [
+let myLibrary = [
     {
         title: 'The Silence of the Lambs',
         author: 'Thomas Harris',
@@ -53,6 +53,12 @@ function displayBooks() {
             newRead.textContent = 'Not Read';
         }
         newRow.appendChild(newRead);
+
+        const removeCell = document.createElement('td');
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'X';
+        removeCell.appendChild(removeBtn);
+        newRow.appendChild(removeCell);
 
         tableBody.appendChild(newRow);
     }
