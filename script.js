@@ -23,9 +23,11 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary(title, author, pages, read) {
-    const newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
+function updateButtons() {
+    const removeButtons = document.querySelectorAll('.remove-btn');
+    removeButtons.forEach(function(currentBtn) {
+        currentBtn.addEventListener('click', (e) => removeBookFromLibrary(currentBtn.value));
+    });
 }
 
 function displayBooks() {
@@ -57,12 +59,28 @@ function displayBooks() {
         const removeCell = document.createElement('td');
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'X';
+        removeBtn.setAttribute('value', i);
+        removeBtn.classList.add('remove-btn');
         removeCell.appendChild(removeBtn);
         newRow.appendChild(removeCell);
 
         tableBody.appendChild(newRow);
     }
+    updateButtons();
 }
+
+function addBookToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    displayBooks();
+}
+
+function removeBookFromLibrary(index) {
+    myLibrary.splice(index, 1);
+    displayBooks();
+}
+
+displayBooks();
 
 form.addEventListener('submit', (e) => {
     addBookToLibrary(title.value, author.value, pages.value, document.querySelector('input[name="is-read"]:checked').value);
