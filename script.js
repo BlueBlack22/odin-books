@@ -16,12 +16,14 @@ let myLibrary = [
     }
 ];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+};
 
 function updateButtons() {
     const removeButtons = document.querySelectorAll('.remove-btn');
@@ -33,7 +35,7 @@ function updateButtons() {
     isReadButtons.forEach(function(currentBtn) {
         currentBtn.addEventListener('click', (e) => changeStatus(currentBtn.value))
     });
-}
+};
 
 function displayBooks() {
     tableBody.textContent = '';
@@ -78,7 +80,7 @@ function displayBooks() {
         tableBody.appendChild(newRow);
     }
     updateButtons();
-}
+};
 
 function addBookToLibrary(title, author, pages, read) {
     if (read == 'true') {
@@ -90,18 +92,18 @@ function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, readBoolean);
     myLibrary.push(newBook);
     displayBooks();
-}
+};
 
 function removeBookFromLibrary(index) {
     myLibrary.splice(index, 1);
     displayBooks();
-}
+};
 
 function changeStatus(index) {
     const currentStatus = myLibrary[index].read;
     currentStatus ? myLibrary[index].read = false : myLibrary[index].read = true;
     displayBooks();
-}
+};
 
 displayBooks();
 
